@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp Online</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fbe7e7, #fff5e1);
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .card {
+      width: 350px;
+      height: 220px;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform: rotateY(0deg);
+      transition: transform 1s;
+    }
+
+    .card.open .card-inner {
+      transform: rotateY(-180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border: 2px solid #b56576;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .card-front {
+      background: #fff;
+      background-image: url("https://i.imgur.com/3Qf0EwT.png"); /* hoa văn */
+      background-size: cover;
+      font-size: 22px;
+      font-weight: bold;
+      color: #b56576;
+    }
+
+    .card-back {
+      background: #b56576;
+      color: white;
+      font-size: 20px;
+      line-height: 1.4;
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="card" onclick="this.classList.toggle('open')">
+    <div class="card-inner">
+      <div class="card-front">
+        🌸 Nhấn để mở thiệp 🌸
+      </div>
+      <div class="card-back">
+        💌 Trân trọng kính mời,<br>
+        Quý khách 💌
+      </div>
+    </div>
+  </div>
+</body>
+</html>
